@@ -26,16 +26,24 @@ public class IEPonderPlugin implements PonderPlugin {
 
   @Override
   public void registerSharedText(SharedTextRegistrationHelper helper) {
+    // Recipes disclaimer
+    helper.registerSharedText("disclaimer_recipes", "Recipes can differ if changed by other mods or datapacks.");
+
     // MB - Forming
     helper.registerSharedText("multiblock_forming_place", "Place all the required blocks.");
     helper.registerSharedText("multiblock_forming_hammer", "Finish forming the multiblock by hammering this spot.");
     // MB - Items
-    helper.registerSharedText("multiblock_item_input", "Items are inserted here.");
+    helper.registerSharedText("multiblock_item_input_all", "Items can be inserted to any side.");
+    helper.registerSharedText("multiblock_item_input_point", "Items are inserted here.");
+    helper.registerSharedText("multiblock_item_output_all", "Items can be extracted from any side.");
     helper.registerSharedText("multiblock_item_output_auto",
         "Items are automatically pushed to connected conveyors, machines & other blocks that can receive items.");
-    // MB - Fluids
+    
+        // MB - Fluids
     helper.registerSharedText("multiblock_fluid_input",
         "Fluids are inserted here.");
+    helper.registerSharedText("multiblock_fluid_output_all",
+        "Fluids can be extracted from any side.");
     helper.registerSharedText("multiblock_fluid_output_auto",
         "Fluids are automatically pushed to connected compatible pipes, fluid containers & machines.");
     helper.registerSharedText("multiblock_fluid_output_manual",
