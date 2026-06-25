@@ -7,7 +7,7 @@ import net.createmod.ponder.api.scene.SceneBuilder;
 import net.createmod.ponder.api.scene.SceneBuildingUtil;
 import net.minecraft.core.Direction;
 
-public class ConveyorScenes {
+public class LogisticScenes {
 
   public static void conveyor(SceneBuilder builder, SceneBuildingUtil util) {
     IESceneBuilder scene = new IESceneBuilder(builder.getScene());
@@ -15,7 +15,7 @@ public class ConveyorScenes {
 
     scene.title("conveyor", "Transporting Objects using Conveyors");
     scene.configureBasePlate(0, 0, 7);
-    scene.world().showSection(util.select().layer(0), Direction.UP);
+    scene.showBasePlate();
     scene.idle(10);
     scene.overlay().showText(1000)
         .placeNearTarget()

@@ -64,11 +64,24 @@ public class IESceneBuilder extends PonderSceneBuilder {
     }
   }
 
+  public void rotateCameraY360(int duration) {
+    float stepAngle = 360f / duration;
+    float rotated = 0;
+    while (rotated + stepAngle <= 360f) {
+      rotated += stepAngle;
+      rotateCameraY(stepAngle);
+      idle(1);
+    }
+    float finalStepAngle = 360f - rotated;
+    rotateCameraY(finalStepAngle);
+    idle(1);
+  }
+
   public Selection assembleMultiblockTemplate(ResourceLocation uniqueName, BlockPos origin, int layerDelay,
       int blockDelay) {
     final Mods IE = Mods.IE;
 
-    PonderSceneBuilder builder = this;
+    IESceneBuilder builder = this;
     PonderLevel world = scene.getWorld();
     SceneBuildingUtil util = scene.getSceneBuildingUtil();
 
@@ -100,24 +113,39 @@ public class IESceneBuilder extends PonderSceneBuilder {
     }
 
     // Show outline with text for build duration + 1 Delays (before first)
-    builder.overlay().showOutlineWithText(multiBlockSelection, (multiBlockSize.getY() + 1) * layerDelay)
+    int textDuration = ((multiBlockSize.getY() + 1) * layerDelay)
+        + (multiBlockSize.getX() * multiBlockSize.getY() * multiBlockSize.getZ() * blockDelay);
+    builder.overlay().showOutlineWithText(multiBlockSelection, textDuration)
         .placeNearTarget().sharedText(IEPonder.rl("multiblock_forming_place"))
         .pointAt(multiBlockSelectionTextAnchor);
     builder.idle(layerDelay);
 
+    // Show building animation
     for (int layerIndex = origin.getY(); layerIndex < origin.getY() + multiBlockSize.getY(); layerIndex++) {
-      builder.world().showSection(util.select().layer(layerIndex), Direction.DOWN);
+      if (blockDelay > 0) {
+        util.select().layer(layerIndex).forEach((BlockPos blockPos) -> {
+          if (multiBlockSelection.test(blockPos)) {
+            builder.world().showSection(util.select().position(blockPos), Direction.DOWN);
+            builder.idle(blockDelay);
+          }
+        });
+      } else {
+        builder.world().showSection(util.select().layer(layerIndex), Direction.DOWN);
+      }
       builder.idle(layerDelay);
       builder.addKeyframe();
     }
-
     builder.idle(layerDelay);
 
-    builder.overlay().showOutlineWithText(util.select().position(multiBlockTriggerPos), 3 * layerDelay)
+    // Rotate Camera
+    builder.rotateCameraY360(40);
+    idle(60);
+
+    builder.overlay().showOutlineWithText(util.select().position(multiBlockTriggerPos), 90)
         .placeNearTarget().sharedText(IEPonder.rl("multiblock_forming_hammer"))
         .pointAt(util.vector().blockSurface(multiBlockTriggerPos, Direction.NORTH))
         .attachKeyFrame();
-    builder.idle(2 * layerDelay);
+    builder.idle(60);
 
     builder.overlay()
         .showControls(util.vector().blockSurface(multiBlockTriggerPos, Direction.NORTH), Pointing.DOWN, 30)

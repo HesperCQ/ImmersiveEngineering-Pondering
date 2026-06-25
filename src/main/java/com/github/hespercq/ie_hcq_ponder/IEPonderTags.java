@@ -62,12 +62,14 @@ public class IEPonderTags {
                 .add("cloche")
                 .add("charging_station")
                 .add("blastfurnace_preheater")
-                .add("sample_drill")
                 .add("tesla_coil")
                 .add("turret_gun")
                 .add("turret_chem")
+                .add("sample_drill")
                 .add("crusher")
                 .add("metal_press")
+                .add("assembler")
+                .add("auto_workbench")
                 .add("squeezer")
                 .add("fermenter")
                 .add("mixer")
@@ -82,6 +84,9 @@ public class IEPonderTags {
                 .add("alloy_smelter")
                 .add("crusher")
                 .add("metal_press")
+                .add("assembler")
+                .add("auto_workbench")
+                .add("metal_press")
                 .add("silo")
                 .add("tank")
                 .add("squeezer")
@@ -92,7 +97,5 @@ public class IEPonderTags {
                 .add("lightning_rod")
                 .add("arc_furnace")
                 .add("excavator");
-
-        // TODO: Check how it works with multiblock item
     }
 }

@@ -31,7 +31,7 @@ public class IEPonderPlugin implements PonderPlugin {
 
     // MB - Forming
     helper.registerSharedText("multiblock_forming_place", "Place all the required blocks.");
-    helper.registerSharedText("multiblock_forming_hammer", "Finish forming the multiblock by hammering this spot.");
+    helper.registerSharedText("multiblock_forming_hammer", "Hammer the highlighted block from this side to finish forming the multiblock");
     // MB - Items
     helper.registerSharedText("multiblock_item_input_all", "Items can be inserted to any side.");
     helper.registerSharedText("multiblock_item_input_point", "Items are inserted here.");
