@@ -2,6 +2,11 @@ package com.github.hespercq.ie_hcq_ponder;
 
 import com.github.hespercq.ie_hcq_ponder.compat.Mods;
 import com.github.hespercq.ie_hcq_ponder.scenes.LogisticScenes;
+import com.github.hespercq.ie_hcq_ponder.scenes.multiblocks.AdvancedBlastFurnaceScenes;
+import com.github.hespercq.ie_hcq_ponder.scenes.multiblocks.AlloySmelterScenes;
+import com.github.hespercq.ie_hcq_ponder.scenes.multiblocks.AssemblerScenes;
+import com.github.hespercq.ie_hcq_ponder.scenes.multiblocks.AutoWorkbenchScenes;
+import com.github.hespercq.ie_hcq_ponder.scenes.multiblocks.BlastFurnaceScenes;
 import com.github.hespercq.ie_hcq_ponder.scenes.multiblocks.CokeOvenScenes;
 import com.github.hespercq.ie_hcq_ponder.scenes.multiblocks.CrusherScenes;
 import com.github.hespercq.ie_hcq_ponder.scenes.multiblocks.MetalPressScenes;
@@ -31,6 +36,21 @@ public class IEPonderScenes {
                                                 CokeOvenScenes::operating,
                                                 IEPonderTags.MULTI_BLOCKS);
 
+                ieHelper.forComponents("blast_furnace")
+                                .addStoryBoard("blast_furnace/forming",
+                                                BlastFurnaceScenes::forming,
+                                                IEPonderTags.MULTI_BLOCKS);
+
+                ieHelper.forComponents("advanced_blast_furnace")
+                                .addStoryBoard("advanced_blast_furnace/forming",
+                                                AdvancedBlastFurnaceScenes::forming,
+                                                IEPonderTags.MULTI_BLOCKS);
+
+                ieHelper.forComponents("alloy_smelter")
+                                .addStoryBoard("alloy_smelter/forming",
+                                                AlloySmelterScenes::forming,
+                                                IEPonderTags.MULTI_BLOCKS);
+
                 ieHelper.forComponents("crusher")
                                 .addStoryBoard("crusher/forming",
                                                 CrusherScenes::forming,
@@ -39,6 +59,16 @@ public class IEPonderScenes {
                 ieHelper.forComponents("metal_press")
                                 .addStoryBoard("metal_press/forming",
                                                 MetalPressScenes::forming,
+                                                IEPonderTags.ELECTRIC_APPLIANCES, IEPonderTags.MULTI_BLOCKS);
+
+                ieHelper.forComponents("assembler")
+                                .addStoryBoard("assembler/forming",
+                                                AssemblerScenes::forming,
+                                                IEPonderTags.ELECTRIC_APPLIANCES, IEPonderTags.MULTI_BLOCKS);
+
+                ieHelper.forComponents("auto_workbench")
+                                .addStoryBoard("auto_workbench/forming",
+                                                AutoWorkbenchScenes::forming,
                                                 IEPonderTags.ELECTRIC_APPLIANCES, IEPonderTags.MULTI_BLOCKS);
 
                 ieHelper.forComponents("silo")

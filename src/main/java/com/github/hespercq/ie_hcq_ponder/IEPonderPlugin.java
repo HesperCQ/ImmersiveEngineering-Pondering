@@ -31,15 +31,15 @@ public class IEPonderPlugin implements PonderPlugin {
 
     // MB - Forming
     helper.registerSharedText("multiblock_forming_place", "Place all the required blocks.");
-    helper.registerSharedText("multiblock_forming_hammer", "Hammer the highlighted block from this side to finish forming the multiblock");
+    helper.registerSharedText("multiblock_forming_hammer",
+        "Hammer the highlighted block from this side to finish forming the multiblock");
     // MB - Items
     helper.registerSharedText("multiblock_item_input_all", "Items can be inserted to any side.");
     helper.registerSharedText("multiblock_item_input_point", "Items are inserted here.");
     helper.registerSharedText("multiblock_item_output_all", "Items can be extracted from any side.");
     helper.registerSharedText("multiblock_item_output_auto",
         "Items are automatically pushed to connected conveyors, machines & other blocks that can receive items.");
-    
-        // MB - Fluids
+    // MB - Fluids
     helper.registerSharedText("multiblock_fluid_input",
         "Fluids are inserted here.");
     helper.registerSharedText("multiblock_fluid_output_all",
@@ -54,8 +54,10 @@ public class IEPonderPlugin implements PonderPlugin {
     // OTHER
     helper.registerSharedText("screwdriver_invert", "This behaviour can be inverted using a screwdriver.");
     // Hammer InOut
-    helper.registerSharedText("hammer_in_out", "Use a hammer to change faces output modes between \"Input\", \"Output\" & \"None\".");
-    helper.registerSharedText("hammer_in_out_sneak", "Sneaking while using the hammer will change the output of the opposite side face.");
+    helper.registerSharedText("hammer_in_out",
+        "Use a hammer to change faces output modes between \"Input\", \"Output\" & \"None\".");
+    helper.registerSharedText("hammer_in_out_sneak",
+        "Sneaking while using the hammer will change the output of the opposite side face.");
   }
 
   @Override

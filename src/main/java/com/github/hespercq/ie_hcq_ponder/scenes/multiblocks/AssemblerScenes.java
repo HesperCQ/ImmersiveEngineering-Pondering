@@ -13,14 +13,14 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.Vec3;
 
-public class BlastFurnaceScenes {
+public class AssemblerScenes {
 
   public static void forming(SceneBuilder builder, SceneBuildingUtil util) {
     final Mods IE = Mods.IE;
 
-    final String sceneId = "blast_furnace/forming";
-    final String sceneTitle = "Forming the Crude Blast Furnace Multiblock";
-    final ResourceLocation multiBlockRL = IE.rl("multiblocks/blast_furnace");
+    final String sceneId = "assembler/forming";
+    final String sceneTitle = "Forming the Assembler Multiblock";
+    final ResourceLocation multiBlockRL = IE.rl("multiblocks/assembler");
 
     final Selection multiBlockSelection = util.select().fromTo(1, 4, 1, 3, 6, 3);
     final Vec3 multiBlockOffset = util.vector().of(0, -3, 0);

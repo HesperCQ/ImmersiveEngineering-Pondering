@@ -13,17 +13,17 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.Vec3;
 
-public class BlastFurnaceScenes {
+public class AutoWorkbenchScenes {
 
   public static void forming(SceneBuilder builder, SceneBuildingUtil util) {
     final Mods IE = Mods.IE;
 
-    final String sceneId = "blast_furnace/forming";
-    final String sceneTitle = "Forming the Crude Blast Furnace Multiblock";
-    final ResourceLocation multiBlockRL = IE.rl("multiblocks/blast_furnace");
+    final String sceneId = "auto_workbench/forming";
+    final String sceneTitle = "Forming the Automated Engineer's Workbench";
+    final ResourceLocation multiBlockRL = IE.rl("multiblocks/auto_workbench");  
 
-    final Selection multiBlockSelection = util.select().fromTo(1, 4, 1, 3, 6, 3);
-    final Vec3 multiBlockOffset = util.vector().of(0, -3, 0);
+    final Selection multiBlockSelection = util.select().fromTo(1, 3, 1, 3, 4, 3);
+    final Vec3 multiBlockOffset = util.vector().of(0, -2, 0);
 
     final BlockPos templateOrigin = util.grid().at(1, 1, 1);
     final int basePlateSize = 5;
